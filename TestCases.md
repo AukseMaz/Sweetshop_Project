@@ -11,16 +11,4 @@ About page:
         2.2.1 Successful scenario
         2.2.2 Unsuccessful scenario
 
-    git init
-    git status
-    git add .
-        (git add --all)
-    git commit -m ""
 
-
-Create remote repository and push:
-
-    git remote add origin https://github.com/Dailius/demo-test.git
-    git push --set-upstream origin master
-
-git status

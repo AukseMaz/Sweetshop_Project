@@ -2,7 +2,6 @@
 
 describe('Sweet Shop - Your Account', () => {
     const url = 'https://sweetshop.netlify.app/00efc23d-b605-4f31-b97b-6bb276de447e.html';
-  
     beforeEach(() => {
         cy.visit(url); 
     });

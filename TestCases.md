@@ -220,7 +220,7 @@
     2. Ensure the button is clickable.
 -   **Expected Result**: The Login button should be visible and clickable for submitting login credentials. 
 
-### TC_4.5 Verify links to Twitter, Facebook, Linkedin
+### TC_4.5 Verify links to Twitter, Facebook, Linkedin.
 -   **Pre-requisites**: The user is on the Login page.  
 -   **Steps to Test**:
     1. Look for social media icons to Twitter, Facebook, and LinkedIn.
@@ -234,7 +234,7 @@
     2. Click on the "Login" button.
 -   **Expected Result**: The user should be successfully logged in and redirected to the account page.
 
-### TC_4.7 Negative with wrong email format
+### TC_4.7 Negative with wrong email format.
 -   **Pre-requisites**: The user is on the "Login" page.
 -   **Steps to Test**:
     1. Enter an incorrect email format (e.g., testemail or test@com) in the Email address field.

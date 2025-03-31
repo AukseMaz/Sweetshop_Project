@@ -167,7 +167,7 @@
     2. Try clicking the "Add to Basket" button to ensure it is interactive.
 -   **Expected Result**: 
     -   Every product on the Sweets page should display a name, price, image, and an "Add to Basket" button.
-    - The "Add to Basket" button should be clickable.  
+    -   The "Add to Basket" button should be clickable.  
 
 ## 3. TS_3 About Page
 ### TC_3.1 Verify the page has the title 'Sweet Shop Project'.
@@ -371,28 +371,27 @@
     - The basket page should display the basket input field containing (Total(GBP) £1.99).
 
 ## 7. TS_7 Checkout Process
-### TC_7.1 Checkout Page Load:
-#### TC_7.1.1 Verify the checkout page is accessible.
+### TC_7.1 Verify the Checkout Section is visible:
 -   **Pre-requisites**:
     - At least one product is added to the basket.
     - The user is on the Basket page.
 -   **Steps to Test**:
-    1. Click on the "Continue to checkout" button.
-    2. Verify that the user is redirected to the Checkout page.
+    1. Verify that the Billing address form, Payment section, and Your Basket summary are displayed on the Basket page.
+    2. Verify that the "Continue to checkout" button is visible and enabled.
 -   **Expected Result**:
-    - The Checkout page should load successfully without errors.
-    - The page should display a billing address form, payment section, and order summary.
+    - The Checkout section should be visible on the Basket page without errors.
+    - The page should display a Billing address form, Payment section, and Your Basket summary.
 
-#### TC_7.1.2 Verify the page displays all basket items.
+#### TC_7.2 Verify the page displays all basket items.
 -   **Pre-requisites**:
     - At least one product is added to the basket.
-    - The user is on the Checkout page.
+    - The user is on the Basket page.
 -   **Steps to Test**:
-    1. Locate the Order Summary section.
+    1. Locate the Your Basket summary section.
     2. Verify that the list of items matches what was added in the basket.
-    3. Check the name, quantity, and price of each item.
+    3. Check if the name, quantity, and price of each item are displayed.
 -   **Expected Result**:
-    - All products added to the basket should be listed correctly in the Order Summary.
+    - All products added to the basket should be listed correctly in the Your Basket Summary.
     - The total price should reflect the sum of all selected items.
 
 ### TC_7.2  Completing Checkout:

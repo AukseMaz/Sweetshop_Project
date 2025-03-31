@@ -9,7 +9,7 @@ describe('Sweet Shop - Your Account', () => {
     it('TC_5.1: Positive login, verify user info is displayed.', () => {
         // Step 1: Verify the user’s name displayed
         cy.get('p.lead') // Select the paragraph element containing the welcome message
-          .should('be.visible') // Ensure the paragraph is visible
-          .and('contain.text', 'Welcome back test@user.com'); // Verify that it contains the expected text
+          .should('be.visible') 
+          .and('contain.text', 'Welcome back test@user.com'); 
     });
   });

@@ -31,10 +31,3 @@ jobs:
           browser: chrome
           headless: true
           record: false  # Set to true if using Cypress Dashboard
-
-      - name: Upload Cypress test reports
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: cypress-test-results
-          path: cypress/reports

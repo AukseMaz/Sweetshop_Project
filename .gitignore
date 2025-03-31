@@ -1,5 +1,6 @@
 #Cypress
-code_examples/cyperss-demo/cypress/screenshots/
+cypress/screenshots
+cypress/reports
 
 # Logs
 logs

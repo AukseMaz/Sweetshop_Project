@@ -17,3 +17,8 @@ Cypress.Commands.add("visitLoginPage", () => {
 Cypress.Commands.add("visitBasketPage", () => {
     cy.visit("https://sweetshop.netlify.app/basket");
 });
+
+Cypress.Commands.add('addItemToBasket', (itemIndex = 0) => {
+    cy.get('.col-lg-3').eq(itemIndex).find('a.addItem').click();
+  });
+  

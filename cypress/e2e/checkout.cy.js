@@ -5,19 +5,11 @@ describe('TC_7.1 Checkout Page Load', () => {
     cy.visitSweetsPage();
   });
 
-  it('TC_7.1.1 Verify the checkout page is accessible', () => {
-    cy.get('.col-lg-3').first().within(() => {
-      cy.get('a.addItem').click();
-    });
+  it('TC_7.1.1 Verify the Checkout section is visible', () => {
+    cy.addItemToBasket()
 
     // Step 2: Navigate to the Basket page
     cy.visitBasketPage();
-
-    // Click on the "Continue to checkout" button
-    //cy.contains('Continue to checkout').click();
-
-    // Verify that the user is redirected to the Checkout page
-    // cy.url().should('include', '/checkout');
 
     // Verify that the Billing address section is displayed
     cy.get('h4.mb-3').contains('Billing address').should('be.visible');

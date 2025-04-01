@@ -31,9 +31,7 @@ describe("Basket Functionality - Adding Products", () => {
 
     it('TC_6.2: Add products to basket with delivery "Collect (FREE)"', () => {
         // Step 1: Select a product and click "Add to Basket"
-        cy.get('.col-lg-3').first().within(() => {
-            cy.get('a.addItem').click();
-        });
+        cy.addItemToBasket();
 
         // Step 2: Navigate to the Basket page
         cy.visitBasketPage();
@@ -57,9 +55,7 @@ describe("Basket Functionality - Adding Products", () => {
 
     it('TC_6.3: Add products to basket with delivery "Standard Shipping (£1.99)"', () => {
         // Step 1: Add a product to the basket
-        cy.get('.col-lg-3').first().within(() => {
-            cy.get('a.addItem').click(); 
-        });
+        cy.addItemToBasket();
 
         // Step 2: Navigate to the Basket page
         cy.visitBasketPage();
@@ -86,9 +82,7 @@ describe("Basket Functionality - Adding Products", () => {
 
     it('TC_6.4: Remove item from basket with delivery "Collect (FREE)" and verify the basket count is updated', () => {
         // Step 1: Select a product and click "Add to Basket"
-        cy.get('.col-lg-3').first().within(() => {
-            cy.get('a.addItem').click(); 
-        });
+        cy.addItemToBasket();
 
         // Step 2: Navigate to the Basket page
         cy.visitBasketPage();
@@ -122,9 +116,7 @@ describe("Basket Functionality - Adding Products", () => {
 
     it('TC_6.5: Remove item from basket with delivery "Standard Shipping(£1.99)" and verify the basket count is updated', () => {
         // Step 1: Select a product and click "Add to Basket"
-        cy.get('.col-lg-3').first().within(() => {
-            cy.get('a.addItem').click(); 
-        });
+        cy.addItemToBasket();
 
         // Step 2: Navigate to the Basket page
         cy.visitBasketPage();
@@ -159,9 +151,7 @@ describe("Basket Functionality - Adding Products", () => {
 
     it('TC_6.6: Remove item from basket with delivery "Standard Shipping(£1.99)" and verify the basket count is updated', () => {
         // Step 1: Select a product and click "Add to Basket"
-        cy.get('.col-lg-3').first().within(() => {
-            cy.get('a.addItem').click(); 
-        });
+        cy.addItemToBasket();
 
         // Step 2: Navigate to the "Basket" page
         cy.visitBasketPage();
@@ -187,23 +177,21 @@ describe("Basket Functionality - Adding Products", () => {
 
     it('TC_6.7: Empty basket with delivery "Standard Shipping (£1.99)" and verify the basket is empty.', () => {
         // Step 1: Select a product and click "Add to Basket"
-        cy.get('.col-lg-3').first().within(() => {
-            cy.get('a.addItem').click(); 
-        });
+        cy.addItemToBasket();
 
         // Step 2: Navigate to the "Basket" page
         cy.visitBasketPage();
 
-        // Step 1: Choose the delivery method 'Collect (FREE)'
+        // Step 3: Choose the delivery method 'Collect (FREE)'
         cy.get('label.custom-control-label[for="exampleRadios2"]').click();
 
-        // Step 2: Click on the "Empty Basket" link
+        // Step 4: Click on the "Empty Basket" link
         cy.get('a').contains('Empty Basket').click();
 
-        // Step 3: Verify that the basket count resets to 0
+        // Step 5: Verify that the basket count resets to 0
         cy.get('.badge').should('be.visible').and('contain.text', '0');
 
-        // Step 4: Verify that the shipping cost of £1.99 is correctly added to the total
+        // Step 6: Verify that the shipping cost of £1.99 is correctly added to the total
         cy.get('li.list-group-item.d-flex.justify-content-between').within(() => {
             cy.get('span').should('contain.text', 'Total (GBP)'); // Ensure the label is correct
             cy.get('strong').invoke('text').then((totalText) => {

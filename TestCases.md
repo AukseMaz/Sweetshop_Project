@@ -371,7 +371,7 @@
     - The basket page should display the basket input field containing (Total(GBP) £1.99).
 
 ## 7. TS_7 Checkout Process
-### TC_7.1 Verify the Checkout Section is visible:
+### TC_7.1 Verify the Checkout Section is visible.
 -   **Pre-requisites**: The user is on the Basket page.
 -   **Steps to Test**:
     1. Verify that the Billing address form including the Payment details are displayed on the Basket page.
@@ -386,7 +386,7 @@
     1. Verify all input fields visible and enabled.
 -   **Expected Result**: All the input fields visible and enabled.
 
-### TC_7.3 Completing Checkout with valid data:
+### TC_7.3 Completing Checkout with valid data.
 -   **Pre-requisites**: The user is on the Basket page.  
 -   **Steps to Test**:
     1. Fill in the Billing Address details:

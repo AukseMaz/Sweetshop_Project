@@ -395,7 +395,7 @@
         - Email
         - Address
         - Country, City, Zip
-    2. Fill in the Payment Details:
+    2. Fill in the Payment details:
         - Name on Card
         - Credit Card Number
         - Expiration Date

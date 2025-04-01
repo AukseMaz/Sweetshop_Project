@@ -372,39 +372,30 @@
 
 ## 7. TS_7 Checkout Process
 ### TC_7.1 Verify the Checkout Section is visible:
--   **Pre-requisites**:
-    - At least one product is added to the basket.
-    - The user is on the Basket page.
+-   **Pre-requisites**: The user is on the Basket page.
 -   **Steps to Test**:
-    1. Verify that the Billing address form, Payment section, and Your Basket summary are displayed on the Basket page.
+    1. Verify that the Billing address form including the Payment details are displayed on the Basket page.
     2. Verify that the "Continue to checkout" button is visible and enabled.
 -   **Expected Result**:
     - The Checkout section should be visible on the Basket page without errors.
-    - The page should display a Billing address form, Payment section, and Your Basket summary.
+    - The page should display a Billing address form, Payment section, and "Continue to checkout" button.
 
-#### TC_7.2 Verify the page displays all basket items.
--   **Pre-requisites**:
-    - At least one product is added to the basket.
-    - The user is on the Basket page.
+### TC_7.2 Display all Billing address form and Payment details input fields as visible and enabled.
+-   **Pre-requisites**: The user is on the Basket page.
 -   **Steps to Test**:
-    1. Locate the Your Basket summary section.
-    2. Verify that the list of items matches what was added in the basket.
-    3. Check if the name, quantity, and price of each item are displayed.
--   **Expected Result**:
-    - All products added to the basket should be listed correctly in the Your Basket Summary.
-    - The total price should reflect the sum of all selected items.
+    1. Verify all input fields visible and enabled.
+-   **Expected Result**: All the input fields visible and enabled.
 
-### TC_7.2  Completing Checkout:
-#### TC_7.2.1 Enter valid payment and shipping details.
--   **Pre-requisites**: The user is on the Checkout page.  
+### TC_7.3 Completing Checkout with valid data:
+-   **Pre-requisites**: The user is on the Basket page.  
 -   **Steps to Test**:
-    1. Fill in the Billing Address section:
+    1. Fill in the Billing Address details:
         - First Name
         - Last Name
         - Email
         - Address
         - Country, City, Zip
-    2. Fill in the Payment Details section:
+    2. Fill in the Payment Details:
         - Name on Card
         - Credit Card Number
         - Expiration Date
@@ -414,26 +405,44 @@
     - The form should accept valid inputs without errors.
     - The user should proceed to order confirmation or payment processing.
 
-#### TC_7.2.2 Add shipping costs.
+### TC_7.4 Show errors when invalid data is entered.
 -   **Pre-requisites**:
-    - At least one product is added to the basket.
-    - The user is on the Checkout page.
+    - The user is on the Basket page. 
+    - At least one invalid data entered in the Billing address and Payment form
 -   **Steps to Test**:
-    1. Select "Standard Shipping (£1.99)" as the delivery option.
-    2. Verify that the shipping cost £1.99 is added to the total price.
-    3. Select "Collect (FREE)" and verify that no extra charge is applied.
+    1. Fill in the Billing address and Payment details:
+        - First Name
+        - Last Name
+        - Invalid Email
+        - Address
+        - Country, City, Zip
+        - Name on Card
+        - Credit Card Number
+        - Expiration Date
+        - CVV
+    2. Click on the "Continue to checkout" button.
+    3. Observe error messages.
 -   **Expected Result**:
-    - If "Standard Shipping (£1.99)" is selected, the total should include the shipping fee.
-    - If "Collect (FREE)" is selected, the total should remain unchanged.
+    - The form should not accept invalid data input and indicate errors.
+    - The user should not be proceed to order confirmation or payment processing.
 
-#### TC_7.2.3 Verify checkout was successful.
--   **Pre-requisites**: The user has completed the checkout form with valid details.
+### TC_7.5 Show errors when no data is entered.
+-   **Pre-requisites**:
+    - The user is on the Basket page. 
+    - At least one input is empty in the Billing address and Payment form
 -   **Steps to Test**:
-    1. Click on the "Continue to checkout" button.
-    2. Wait for the system to process the order.
-    3. Verify that the user is redirected to the Order Confirmation page.
-    4. Check if a confirmation message is displayed (e.g., "Thank you for your order!").
+    1. Fill in the Billing Address and Payment details:
+        - First Name
+        - Last Name
+        - Empty email 
+        - Address
+        - Country, City, Zip
+        - Name on Card
+        - Credit Card Number
+        - Expiration Date
+        - CVV
+    2. Click on the "Continue to checkout" button.
+    3. Observe error messages.
 -   **Expected Result**:
-    - The order should be processed successfully.
-    - The user should see an order confirmation message.
-    - The basket should be emptied after successful checkout.
+    - The form should not accept invalid data input and indicate errors.
+    - The user should not be proceed to order confirmation or payment processing.

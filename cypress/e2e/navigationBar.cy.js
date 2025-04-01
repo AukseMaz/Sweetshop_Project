@@ -151,4 +151,11 @@ describe('Pages load from "Basket" page correctly.', () => {
         cy.url().should('include', '/login');
         cy.get('h1.display-3').should('contain.text', 'Login');
     });
+    
+    it('TC_1.21 Verify that the logo icon is visible', () => {
+        // Step 1: Check if the logo image exists
+        cy.get('img[src="favicon.png"]') // Select the image based on its src attribute
+          .should('exist') // Assert that the image exists in the DOM
+          .and('be.visible');
+    });
 });

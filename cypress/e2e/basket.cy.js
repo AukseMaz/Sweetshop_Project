@@ -52,7 +52,7 @@ describe("Basket Functionality - Adding Products", () => {
 
         // Verify the total price remains unchanged
         cy.get('.total-price, strong, .cart-total').invoke('text').then((totalText) => {
-            const total = parseFloat(totalText.replace(/[^\d.]/g, '')); // Extract numeric value
+            const total = parseFloat(totalText.replace(/[^\d.]/g, '')); 2. // Extract numeric value
             expect(total).to.equal(1.00); 
         });
     });
@@ -156,7 +156,7 @@ describe("Basket Functionality - Adding Products", () => {
         cy.get(basketCountElement).should('be.visible').and('contain.text', '0');
 
         // Verify that the basket input field contains (Total(GBP) £0.00)
-        cy.get('li.list-group-item.d-flex.justify-content-between').within(() => {
+        cy.get(basketTotalItem).within(() => {
             cy.get('span').should('contain.text', 'Total (GBP)'); 
             cy.get('strong').invoke('text').then((totalText) => {
                 const total = totalText.replace('£', '').trim(); 
@@ -178,7 +178,7 @@ describe("Basket Functionality - Adding Products", () => {
         cy.get(basketCountElement).should('be.visible').and('contain.text', '0');
 
         // Verify that the shipping cost of £1.99 is correctly added to the total
-        cy.get('li.list-group-item.d-flex.justify-content-between').within(() => {
+        cy.get(basketTotalItem).within(() => {
             cy.get('span').should('contain.text', 'Total (GBP)'); 
             cy.get('strong').invoke('text').then((totalText) => {
                 const total = totalText.replace('£', '').trim(); 

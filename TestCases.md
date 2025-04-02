@@ -297,7 +297,7 @@
     3. Compare the updated total with the sum of product prices + £1.99.
 -   **Expected Result**: The basket should display the correct total: (Sum of product prices) + £1.99 when Standard Shipping is selected.  
 
-### TC_6.4 Remove item from basket with delivery 'Collect(FREE)' and verify the basket count is updated.
+### TC_6.4: Remove item from basket with delivery "Collect (FREE)" and verify the basket count is updated.
 -   **Pre-requisites**:
     - At least one product has been added to the basket.
     - The user has navigated to the Basket page.
@@ -312,7 +312,7 @@
     - The basket count should decrease accordingly.
     - The total price should reflect the updated cost.
     
-### TC_6.5 Remove item from basket with delivery 'Standard Shipping(£1.99)' and verify the basket count is updated.
+### TC_6.5: Remove item from basket with delivery "Standard Shipping(£1.99)" and verify the basket count is updated.
 -   **Pre-requisites**:
     - At least one product has been added to the basket.
     - The user has navigated to the Basket page.

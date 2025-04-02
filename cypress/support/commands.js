@@ -21,4 +21,18 @@ Cypress.Commands.add("visitBasketPage", () => {
 Cypress.Commands.add('addItemToBasket', (itemIndex = 0) => {
     cy.get('.col-lg-3').eq(itemIndex).find('a.addItem').click();
   });
-  
+
+  Cypress.Commands.add("addRandomItemsToBasket", (minItems, maxItems) => {
+    cy.get(".btn").then(($buttons) => {
+        const totalItems = $buttons.length;
+        const numberOfItems = Cypress._.random(minItems, maxItems); 
+        const randomIndexes = Cypress._.shuffle([...Array(totalItems).keys()]).slice(0, numberOfItems); 
+
+        randomIndexes.forEach((index) => {
+            cy.wrap($buttons.eq(index)).click();
+        });
+        // Store count for later assertions
+        cy.wrap(numberOfItems).as("selectedItemCount"); 
+    });
+});
+

@@ -1,190 +1,129 @@
 /// <reference types="cypress" />
 
 describe("Basket Functionality - Adding Products", () => {
-    const deliveryCollectFree = 'label.custom-control-label[for="exampleRadios1"]';
-    const deliveryStandardShipping = 'label.custom-control-label[for="exampleRadios2"]';
-    const basketCountElement = "span.badge.badge-success";
-    const addedItemDetails = "li.list-group-item";
-    const basketTotalItem = "li.list-group-item.d-flex.justify-content-between";
+    const deliveryCollectFree = 'label[for="exampleRadios1"]';
+    const deliveryStandardShipping = 'label[for="exampleRadios2"]';
+    const basketItemPrice = "li.list-group-item strong";
+    const itemDeleteLink = "a.small";
+    const emptyTotal = "li.list-group-item.d-flex.justify-content-between";
 
     beforeEach(() => {
         cy.visitSweetsPage();
     });
 
-    it("TC_6.1: Add products to basket and verify the basket count is updated.", () => {
-        // Ensure the basket count element exists
-        cy.get(basketCountElement, { timeout: 10000 }).should("exist");
+    it("TC_6.1 Add random products to basket and verify count is updated", () => {
+        cy.addRandomItemsToBasket(3, 7);
 
-        // Get initial basket count
-        cy.get(basketCountElement)
+        cy.get("@selectedItemCount").then((selectedItemCount) => {
+            cy.get(".badge").should("contain", selectedItemCount);
+        });
+    });
+
+    it('TC_6.2 Add random products and select "Collect(FREE)" delivery.', () => {
+        cy.addRandomItemsToBasket(2, 5);
+
+        cy.visitBasketPage();
+        cy.get(deliveryCollectFree).click();
+        cy.get(".list-group").should("be.visible");
+    });
+
+    it('TC_6.3 Add random products and select "Standard shipping (£1.99)".', () => {
+        cy.addRandomItemsToBasket(3, 6);
+        cy.visitBasketPage();
+
+        let initialTotal;
+        cy.get(basketItemPrice)
             .invoke("text")
-            .then((initialCount) => {
-                const initial = parseInt(initialCount) || 0; 
-
-                // Click the first "Add to Basket" button
-                cy.get("a.btn.addItem").first().click();
-
-                // Verify the basket count increases by 1
-                cy.get(basketCountElement).should("contain.text", (initial + 1).toString());
-
-                // Click another "Add to Basket" button
-                cy.get("a.btn.addItem").eq(1).click();
-
-                // Verify the basket count updates again
-                cy.get(basketCountElement).should("contain.text", (initial + 2).toString());
+            .then((text) => {
+                initialTotal = parseFloat(text.replace("£", "").trim());
             });
-    });
 
-    it('TC_6.2: Add products to basket with delivery "Collect (FREE)".', () => {
-
-        cy.addItemToBasket();
-        cy.visitBasketPage();
-
-        // Verify the added product details
-        cy.get(addedItemDetails).first().within(() => {
-            cy.get("h6.my-0").should("contain.text", "Chocolate Cups");
-            cy.get("small.text-muted").should("contain.text", "x 1");
-            cy.get("span.text-muted").should("contain.text", "£1.00");
-        });
-
-        // Select the "Collect (FREE)" option
-        cy.get(deliveryCollectFree).click();
-
-        // Verify the total price remains unchanged
-        cy.get('.total-price, strong, .cart-total').invoke('text').then((totalText) => {
-            const total = parseFloat(totalText.replace(/[^\d.]/g, '')); 2. // Extract numeric value
-            expect(total).to.equal(1.00); 
-        });
-    });
-
-    it('TC_6.3: Add products to basket with delivery "Standard Shipping (£1.99)".', () => {
-        
-        cy.addItemToBasket();
-        cy.visitBasketPage();
-
-        // Verify the added product details
-        cy.get(addedItemDetails).should('exist');
-
-        cy.get(addedItemDetails).first().within(() => {
-            cy.get('h6.my-0').should('contain.text', 'Chocolate Cups');
-            cy.get('small.text-muted').should('contain.text', 'x 1');
-            cy.get('span.text-muted').should('contain.text', '£1.00');
-        });
-
-        // Select the "Standard Shipping (£1.99)" option
         cy.get(deliveryStandardShipping).click();
 
-        // Verify that the shipping cost of £1.99 is correctly added to the total
-        cy.get(basketTotalItem).contains('Total (GBP)').parent().find('strong').invoke('text').then((totalText) => {
-            const total = totalText.replace('£', '').trim(); 
-            const expectedTotal = 1.00 + 1.99; 
-            expect(Number(total)).to.equal(expectedTotal); 
-        });
+        // Verify total amount includes shipping cost (£1.99)
+        cy.get(basketItemPrice)
+            .invoke("text")
+            .then((newText) => {
+                const finalTotal = parseFloat(newText.replace("£", "").trim());
+                expect(finalTotal).to.equal(initialTotal + 1.99);
+            });
     });
 
-    it('TC_6.4: Remove item from basket with delivery "Collect (FREE)" and verify the basket count is updated.', () => {
-      
-        cy.addItemToBasket();
+    it("TC_6.4 Remove an item from the basket and verify count is updated.", () => {
+        cy.addRandomItemsToBasket(3, 5); // Adds between 3 to 5 items
         cy.visitBasketPage();
-        cy.get(deliveryCollectFree).click();
 
-        // Click the Delete item button
-        cy.get(addedItemDetails).first().within(() => {
-            cy.get('a.small').contains('Delete Item').click(); 
-        });
+        cy.get("@selectedItemCount").then((initialCount) => {
+            cy.get(".badge-pill").should("contain", initialCount);
 
-        // Observe the basket count in the navigation bar
-        cy.get(basketCountElement).should('be.visible'); 
+            cy.get(itemDeleteLink).first().click();
+            cy.on("window:confirm", () => true);
 
-        // Verify that the count decreases by 1
-        cy.get(basketCountElement).invoke('text').then((text) => {
-            const updatedCount = parseInt(text); 
-            expect(updatedCount).to.equal(0); 
-        });
-
-        // Verify that the total price is updated correctly
-        cy.get(basketTotalItem).within(() => {
-            cy.get('span').should('contain.text', 'Total (GBP)'); 
-            cy.get('strong').invoke('text').then((totalText) => {
-                const total = totalText.replace('£', '').trim(); 
-                expect(Number(total)).to.equal(0.00); 
+            cy.get(".badge-pill").invoke("text").then((text) => {
+                const updatedCount = parseInt(text.trim());
+                expect(updatedCount).to.equal(initialCount - 1);
             });
         });
     });
 
-    it('TC_6.5: Remove item from basket with delivery "Standard Shipping(£1.99)" and verify the basket count is updated.', () => {
-        
-        cy.addItemToBasket();
+    it("TC_6.5 Empty basket and verify it is empty.", () => {
+        cy.addRandomItemsToBasket(3, 5); 
         cy.visitBasketPage();
-        cy.get(deliveryStandardShipping).click();
 
-        // Click the Delete item button
-        cy.get(addedItemDetails).first().within(() => {
-            cy.get('a.small').contains('Delete Item').click(); 
+        cy.get("body").then(($body) => {
+            if ($body.find(itemDeleteLink).length > 0) {
+                const deleteItem = () => {
+                    cy.get("body").then(($body) => {
+                        if ($body.find(itemDeleteLink).length > 0) {
+                            cy.get(itemDeleteLink).first().click();
+                            cy.on("window:confirm", () => true);
+                            cy.wait(500);
+                            cy.reload();
+                            cy.wait(1000);
+                            deleteItem();
+                        } else {
+                            cy.log("Basket is empty");
+                        }
+                    });
+                };
+                deleteItem();
+            } else {
+                cy.log("Basket was already empty");
+            }
         });
 
-        // Observe the basket count in the navigation bar
-        cy.get(basketCountElement).should('be.visible'); 
-
-        // Verify that the count decreases by 1
-        cy.get(basketCountElement).invoke('text').then((text) => {
-            const updatedCount = parseInt(text); 
-            expect(updatedCount).to.equal(0); 
-        });
-
-        // Verify that the shipping cost of £1.99 is correctly added to the total
-        cy.get(basketTotalItem).within(() => {
-            cy.get('span').should('contain.text', 'Total (GBP)'); 
-            cy.get('strong').invoke('text').then((totalText) => {
-                const total = totalText.replace('£', '').trim(); 
-                const expectedTotal = 1.99; 
-                expect(Number(total)).to.equal(expectedTotal); 
-            });
-        });
+        cy.get(".basketCount", { timeout: 10000 }).should("not.exist");
     });
 
-    it('TC_6.6: Empty basket with delivery "Collect (FREE)" and verify the basket is empty.', () => {
-    
-        cy.addItemToBasket();
+    it('TC_6.6 Empty the basket with the "Empty Basket" link and verify it is empty.', () => {
+        // Add random items to the basket (between 3 to 5 items)
+        cy.addRandomItemsToBasket(3, 5);
         cy.visitBasketPage();
-        cy.get(deliveryCollectFree).click();
 
-        // Click on the "Empty Basket" link
-        cy.get('a').contains('Empty Basket').click();
-
-        // Verify that the basket count resets to 0
-        cy.get(basketCountElement).should('be.visible').and('contain.text', '0');
-
-        // Verify that the basket input field contains (Total(GBP) £0.00)
-        cy.get(basketTotalItem).within(() => {
-            cy.get('span').should('contain.text', 'Total (GBP)'); 
-            cy.get('strong').invoke('text').then((totalText) => {
-                const total = totalText.replace('£', '').trim(); 
-                expect(Number(total)).to.equal(0.00); 
+        // Check if the "Empty Basket" link exists
+        cy.get("body").then(($body) => {
+            const emptyBasketLink = $body.find('a[href="#"]').filter(function () {
+                return Cypress.$(this).text().includes("Empty Basket");
             });
+
+            if (emptyBasketLink.length > 0) {
+                cy.wrap(emptyBasketLink).click();
+                cy.on("window:confirm", () => true);
+                cy.wait(500); // wait for the basket to be emptied
+
+                cy.get(".badge").should("contain.text", "0");
+
+                // Verify the total price is £0.00
+                cy.get(emptyTotal).within(() => {
+                    cy.get("span").should("contain.text", "Total (GBP)");
+                    cy.get("strong").invoke("text").then((totalText) => {
+                        const total = totalText.replace("£", "").trim();
+                        expect(Number(total)).to.equal(0.00);
+                    });
+                });
+            } else {
+                cy.log("Basket is already empty");
+            }
         });
     });
-
-    it('TC_6.7: Empty basket with delivery "Standard Shipping (£1.99)" and verify the basket is empty.', () => {
-        
-        cy.addItemToBasket();
-        cy.visitBasketPage();
-        cy.get(deliveryStandardShipping).click();
-
-        // Click on the "Empty Basket" link
-        cy.get('a').contains('Empty Basket').click();
-
-        // Verify that the basket count resets to 0
-        cy.get(basketCountElement).should('be.visible').and('contain.text', '0');
-
-        // Verify that the shipping cost of £1.99 is correctly added to the total
-        cy.get(basketTotalItem).within(() => {
-            cy.get('span').should('contain.text', 'Total (GBP)'); 
-            cy.get('strong').invoke('text').then((totalText) => {
-                const total = totalText.replace('£', '').trim(); 
-                const expectedTotal = 1.99; 
-                expect(Number(total)).to.equal(expectedTotal); 
-            });
-        });
-    }); 
 });

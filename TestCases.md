@@ -262,7 +262,7 @@
 -   **Expected Result**: User information should be displayed correctly.  
 
 ## 6. TS_6 Basket Page
-### TC_6.1 Add products to basket and the basket count is updated.
+### Add random products to basket and verify count is updated.
 -   **Pre-requisites**:
     - The user is on the Sweets page.
     - Products are available for purchase.
@@ -275,7 +275,7 @@
     - The basket count should increase each time a product is added.
     - The count should match the number of items added.
 
-### TC_6.2 Add products to basket with delivery 'Collect(FREE)' (quantity, name, price, total).
+### TC_6.2 Add random products and select "Collect(FREE)" delivery.
 -   **Pre-requisites**:
     - At least one product has been added to the basket.
     - The user has navigated to the Basket page.
@@ -287,7 +287,7 @@
     - The product details (name, price, quantity) should be displayed correctly.
     - Selecting "Collect (FREE)" should not add any additional charges to the total price.
 
-### TC_6.3 Add products to basket with delivery 'Standard shipping (1.99)' (quantity, name, price, total).
+### TC_6.3 Add random products and select "Standard shipping (£1.99)".
 -   **Pre-requisites**:
     - At least one product has been added to the basket.
     - The user has navigated to the Basket page.
@@ -297,7 +297,7 @@
     3. Compare the updated total with the sum of product prices + £1.99.
 -   **Expected Result**: The basket should display the correct total: (Sum of product prices) + £1.99 when Standard Shipping is selected.  
 
-### TC_6.4: Remove item from basket with delivery "Collect (FREE)" and verify the basket count is updated.
+### TC_6.4 Remove an item from the basket and verify count is updated.
 -   **Pre-requisites**:
     - At least one product has been added to the basket.
     - The user has navigated to the Basket page.
@@ -312,7 +312,7 @@
     - The basket count should decrease accordingly.
     - The total price should reflect the updated cost.
     
-### TC_6.5: Remove item from basket with delivery "Standard Shipping(£1.99)" and verify the basket count is updated.
+### TC_6.5 Empty basket and verify it is empty.
 -   **Pre-requisites**:
     - At least one product has been added to the basket.
     - The user has navigated to the Basket page.
@@ -327,7 +327,7 @@
     - The basket count should decrease accordingly.
     - The total price should reflect the updated cost.
 
-### TC_6.6 Empty basket with delivery 'Collect(FREE)' and verify the basket is empty.
+### TC_6.6 Empty the basket with the "Empty Basket" link and verify it is empty.
 -   **Pre-requisites**:
     - At least one product has been added to the basket.
     - The user has navigated to the Basket page.
@@ -341,7 +341,7 @@
     - The basket count should reset to 0.
     - The basket page should display the basket input field containing (Total(GBP) £0.00).
     
-### TC_6.7 Empty basket with delivery 'Standard Shipping (£1.99) and verify the basket is empty.
+.
 -   **Pre-requisites**:
     - At least one product has been added to the basket.
     - The user has navigated to the Basket page.

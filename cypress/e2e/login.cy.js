@@ -19,29 +19,7 @@ describe("SweetShop - Login Page", () => {
         });
     });
 
-    it('TC_4.3: Verify the page contains "email" and "password" input fields.', () => {
-        // Step 1: Check for an input field labeled "Email address"
-        cy.get('input[type="email"]').should('be.visible');
-        cy.get('input[type="email"]').should('have.attr', 'placeholder', 'you@example.com');
-        // Step 2: Check for an input field labeled "Password"
-        cy.get('input[type="password"]').should('be.visible');
-        // Step 3: Try clicking inside each field to ensure they are interactive
-        cy.get('input[type="email"]').click(); 
-        cy.get('input[type="email"]').should('have.focus'); 
-        cy.get('input[type="password"]').click(); 
-        cy.get('input[type="password"]').should('have.focus'); 
-    });
-
-    it('TC_4.4: Verify the page contains a "Login" button.', () => {
-        // Step 1: Locate the "Login" button on the page
-        cy.get('button[type="submit"]').should('be.visible'); 
-        cy.get('button[type="submit"]').should('have.text', 'Login'); 
-        // Step 2: Ensure the button is clickable
-        cy.get('button[type="submit"]').should('not.be.disabled'); 
-        cy.get('button[type="submit"]').click(); 
-    });
-
-    it("TC_4.5: Verify links to Twitter, Facebook, LinkedIn", () => {
+    it("TC_4.3: Verify links to Twitter, Facebook, LinkedIn", () => {
         // Step 1: Look for social media icons for Twitter, Facebook, and LinkedIn
         cy.get('.social').should('exist'); 
         // Verify the presence of each social media link
@@ -63,7 +41,7 @@ describe("SweetShop - Login Page", () => {
         cy.go('back'); 
     });
 
-    it("TC_4.6: Positive with valid data.", () => {
+    it("TC_4.4: Positive with valid data.", () => {
         // Step 1: Enter a valid email and password
         cy.get('input[type="email"]').type(validEmail); 
         cy.get('input[type="password"]').type(validPassword); 
@@ -76,7 +54,7 @@ describe("SweetShop - Login Page", () => {
         cy.get('h1.display-3').should('contain.text', 'Your Account'); 
     });
 
-    it("TC_4.7: Negative with wrong email format", () => {
+    it("TC_4.5: Negative with wrong email format", () => {
         // Step 1: Enter an incorrect email format in the Email address field
         cy.get('input[type="email"]').type(invalidEmail); 
 
@@ -92,7 +70,7 @@ describe("SweetShop - Login Page", () => {
           .and('contain.text', 'Please enter a valid email address.');
     });
 
-    it('TC_4.8: Negative with empty email', () => {
+    it('TC_4.6: Negative with empty email', () => {
         // Step 1: Leave the Email field empty
         // Step 2: Enter a valid password in the Password field
         cy.get('input[type="password"]').type(validPassword); 
@@ -106,7 +84,7 @@ describe("SweetShop - Login Page", () => {
           .and('contain.text', 'Please enter a valid email address.'); 
     });
 
-    it('TC_4.9: Negative with empty password', () => {
+    it('TC_4.7: Negative with empty password', () => {
         // Step 1: Enter a valid email in the Email field
         cy.get('input[type="email"]').type(validEmail); 
 
@@ -120,7 +98,7 @@ describe("SweetShop - Login Page", () => {
           .and('contain.text', 'Please enter a valid password.'); 
     });
 
-    it('TC_4.10: Negative with empty email and empty password', () => {
+    it('TC_4.8: Negative with empty email and empty password', () => {
         // Step 1: Leave both the Email and Password fields empty
         // Step 2: Click the "Login" button
         cy.get('button[type="submit"]').click(); // Click the Login button

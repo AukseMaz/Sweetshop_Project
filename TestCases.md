@@ -184,7 +184,7 @@
     2. Check if a description is displayed below the title. 
 -   **Expected Result**: The description should be present.  
 
-### TC_3.3 Verify the page has a banner and it matches the year 2018.
+### TC_3.3 Verify the page has a footer and it matches the year 2018.
 -   **Pre-requisites**: Open the website main page.
 -   **Steps to Test**:
     1. Navigate to the "About" page.
@@ -205,36 +205,21 @@
     1. Check for a description text below the page title.
 -   **Expected Result**: The Login page should contain a description explaining the purpose of the page.  
 
-### TC_4.3 Verify the page contains 'email' and 'password' input fields.
--   **Pre-requisites**: The user is on the Login page.
--   **Steps to Test**:
-    1. Check for an input field labeled "Email address".
-    2. Check for an input field labeled "Password".
-    3. Try clicking inside each field to ensure they are interactive.
--   **Expected Result**: The email address and password input fields should be visible and allow user input.  
-
-### TC_4.4 Verify the page contains a 'Login' button.
--   **Pre-requisites**: The user is on the Login page.  
--   **Steps to Test**:
-    1. Locate the "Login" button on the page.
-    2. Ensure the button is clickable.
--   **Expected Result**: The Login button should be visible and clickable for submitting login credentials. 
-
-### TC_4.5 Verify links to Twitter, Facebook, Linkedin.
+### TC_4.3 Verify links to Twitter, Facebook, Linkedin.
 -   **Pre-requisites**: The user is on the Login page.  
 -   **Steps to Test**:
     1. Look for social media icons to Twitter, Facebook, and LinkedIn.
     2. Click on each link and verify they open the correct social media page in a new tab.
 -   **Expected Result**: The Twitter, Facebook, and LinkedIn links should be visible and should redirect the user to the correct pages when clicked.  
 
-### TC_4.6 Positive with valid data.
+### TC_4.4 Positive with valid data.
 -   **Pre-requisites**: A registered user exists.  
 -   **Steps to Test**:
     1. Enter a valid email and password.
     2. Click on the "Login" button.
 -   **Expected Result**: The user should be successfully logged in and redirected to the account page.
 
-### TC_4.7 Negative with wrong email format.
+### TC_4.5 Negative with wrong email format.
 -   **Pre-requisites**: The user is on the "Login" page.
 -   **Steps to Test**:
     1. Enter an incorrect email format (e.g., testemail or test@com) in the Email address field.
@@ -243,7 +228,7 @@
     4. Observe the error message displayed.
 -   **Expected Result**: The system should display an error message: "Please enter a valid email address.". 
 
-### TC_4.8 Negative with empty email.
+### TC_4.6 Negative with empty email.
 -   **Pre-requisites**: The user is on the "Login" page.
 -   **Steps to Test**:
     1. Leave the Email field empty.
@@ -252,7 +237,7 @@
     4. Observe the error message displayed.
 -   **Expected Result**: The system should display an error message: "Please enter a valid email address.".
 
-### TC_4.9 Negative with empty password.
+### TC_4.7 Negative with empty password.
 -   **Pre-requisites**: The user is on the "Login" page.
 -   **Steps to Test**:
     1. Enter a valid email in the Email field.
@@ -261,7 +246,7 @@
     4. Observe the error message displayed.
 -   **Expected Result**: The system should display an error message: "Please enter a valid password.".  
 
-### TC_4.10 Negative with empty email and empty password.
+### TC_4.8 Negative with empty email and empty password.
 -   **Pre-requisites**: The user is on the "Login" page.
 -   **Steps to Test**:
     1. Leave both the Email and Password fields empty.

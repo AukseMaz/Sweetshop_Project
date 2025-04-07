@@ -6,6 +6,11 @@ describe("SweetShop - Login Page", () => {
     const validPassword = "0192837465";
     const invalidEmail = "testemail";
     const buttonLogin = 'button[type="submit"]';
+    const socialMedia = ".social a";
+    const inputEmail = 'input[type="email"]';
+    const inputPassword = 'input[type="password"]';
+    const errorInvalidEmail = ".invalid-feedback.invalid-email";
+    const errorInvalidPassword = ".invalid-feedback.invalid-password";
 
     beforeEach(() => {
         cy.visitLoginPage();
@@ -23,24 +28,24 @@ describe("SweetShop - Login Page", () => {
 
     it("TC_4.3: Verify links to Twitter, Facebook, LinkedIn", () => {
         cy.get(".social").should("exist"); 
-        cy.get(".social a").should("have.length", 3); 
+        cy.get(socialMedia).should("have.length", 3); 
 
-        cy.get(".social a").eq(0).click(); 
+        cy.get(socialMedia).eq(0).click(); 
         cy.url().should("include", "twitter.com"); 
         cy.go("back");
 
-        cy.get(".social a").eq(1).click(); 
+        cy.get(socialMedia).eq(1).click(); 
         cy.url().should("include", "facebook.com"); 
         cy.go('back'); 
 
-        cy.get(".social a").eq(2).click(); 
+        cy.get(socialMedia).eq(2).click(); 
         cy.url().should("include", "linkedin.com"); 
         cy.go("back"); 
     });
 
     it("TC_4.4: Positive with valid data.", () => {
-        cy.get('input[type="email"]').type(validEmail); 
-        cy.get('input[type="password"]').type(validPassword); 
+        cy.get(inputEmail).type(validEmail); 
+        cy.get(inputPassword).type(validPassword); 
 
         cy.get(buttonLogin).click(); 
 
@@ -49,33 +54,33 @@ describe("SweetShop - Login Page", () => {
     });
 
     it("TC_4.5: Negative with wrong email format", () => {
-        cy.get('input[type="email"]').type(invalidEmail); 
+        cy.get(inputEmail).type(invalidEmail); 
 
-        cy.get('input[type="password"]').type(validPassword); 
+        cy.get(inputPassword).type(validPassword); 
 
         cy.get(buttonLogin).click(); 
 
-        cy.get(".invalid-feedback.invalid-email")
+        cy.get(errorInvalidEmail)
           .should("be.visible")
           .and("contain.text", "Please enter a valid email address.");
     });
 
     it("TC_4.6: Negative with empty email", () => {
-        cy.get('input[type="password"]').type(validPassword); 
+        cy.get(inputPassword).type(validPassword); 
 
         cy.get(buttonLogin).click(); 
 
-        cy.get(".invalid-feedback.invalid-email") 
+        cy.get(errorInvalidEmail) 
           .should("be.visible") 
           .and("contain.text", "Please enter a valid email address."); 
     });
 
     it("TC_4.7: Negative with empty password", () => {
-        cy.get('input[type="email"]').type(validEmail); 
+        cy.get(inputEmail).type(validEmail); 
 
         cy.get(buttonLogin).click(); 
 
-        cy.get(".invalid-feedback.invalid-password") 
+        cy.get(errorInvalidPassword) 
           .should("be.visible") 
           .and("contain.text", "Please enter a valid password."); 
     });
@@ -83,11 +88,11 @@ describe("SweetShop - Login Page", () => {
     it("TC_4.8: Negative with empty email and empty password", () => {
         cy.get(buttonLogin).click(); 
 
-        cy.get(".invalid-feedback.invalid-email") 
+        cy.get(errorInvalidEmail) 
           .should("be.visible") 
           .and("contain.text", "Please enter a valid email address."); 
 
-        cy.get(".invalid-feedback.invalid-password") 
+        cy.get(errorInvalidPassword) 
           .should("be.visible") 
           .and("contain.text", "Please enter a valid password."); 
     });

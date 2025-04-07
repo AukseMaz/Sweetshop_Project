@@ -170,7 +170,6 @@ describe('Sweet Shop Logo', () => {
         cy.visitMainPage();
     });
     it('TC_1.21 Verify that the logo icon is visible', () => {
-        // Check if the logo image exists
         cy.get(logoImage)
             .should('exist')
             .and('be.visible');

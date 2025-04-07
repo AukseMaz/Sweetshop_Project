@@ -4,7 +4,7 @@
 ![Cypress](https://img.shields.io/badge/Cypress-Testing-green?logo=cypress)  
 Automated end-to-end testing for the **Sweet Shop** web application using **Cypress**.
 
-🛒 **Live App**: [https://sweetshop.netlify.app](https://sweetshop.netlify.app)
+🛒 **Live App**: [**Sweet Shop**](https://sweetshop.netlify.app)
 
 ---
 
@@ -18,7 +18,7 @@ These features are thoroughly tested using:
 
 All Test Scenarios (TS) and Test Cases (TC) are described in the [**TestCases.md**](/TestCases.md) file.  
 
-Additionally, the identified functional test cases have been registered and automated as Tasks in Jira. Relevant information can be found in the **JiraProject/JiraSummary.md** file.
+Additionally, the identified functional test cases have been registered and automated as Tasks in Jira. Relevant information can be found in the [**JiraProject/JiraSummary.md**](/JiraProject/JiraSummary.md) file.
 
 ---
 ## 🔁 Folder Structure
@@ -119,7 +119,7 @@ MIT License © 2025 Your Name.
 
 ---
 
-## Author
+## 🧑‍💻 Author
 
 Auksė Mažeikienė
 

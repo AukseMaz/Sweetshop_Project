@@ -1,14 +1,19 @@
 # JIRA.md
 
 ## Project: Sweet Shop
-Website: [https://sweetshop.netlify.app](https://sweetshop.netlify.app)
+**Live App**: [**Sweet Shop**](https://sweetshop.netlify.app)
 
 ## Testing Summary
 
-- **Testing Duration**: 3 Sprints (1 week each)
-- **Test Methodology**: Automated
-- **Tasks in Jira**: Functional test cases registered as individual tasks
-- **Defects Logged**: 5 (All categorized as bugs)
+- **Testing Duration**: 3 Sprints between 27 March and 7 April 2025.  
+
+![Sprint1](/JiraProject/screenshots/sprint1.png)
+![Sprint2](/JiraProject/screenshots/sprint2.png)
+![Sprint3](/JiraProject/screenshots/sprint3.png)
+
+- **Test Methodology**: Automated.
+- **Tasks in Jira**: Functional test cases registered as individual tasks.
+- **Defects Logged**: 5, all categorized as bugs.
 
 ---
 

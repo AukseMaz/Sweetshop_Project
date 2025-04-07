@@ -55,10 +55,8 @@ describe('TC_7 Checkout Section', () => {
   });
 
   it("TC_7.5 Show errors when no data is entered.", () => {
-    // Fill the form with valid data for all fields except the email
     cy.fillCheckoutForm(validEmail, validFirstName, validLastName, validAddress, validAddress2, validCountry, validCity, validZip, validCardName, validCardNumber, validExpiration, validCVV);
 
-    // Clear the email field to simulate no email entered
     cy.get("input#email").clear();
     cy.get(checkoutButton).contains("Continue to checkout").click();
     cy.get(".invalid-feedback").contains("Please enter a valid email address for shipping updates.").should("be.visible");

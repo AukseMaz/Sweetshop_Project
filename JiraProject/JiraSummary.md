@@ -22,7 +22,8 @@ Website: [https://sweetshop.netlify.app](https://sweetshop.netlify.app)
 - **Actual**: Error message "Page not found".
 - 💡**Severity**: ***Medium***. Affects navigation and informational content, but not core purchase flow. 
 
-![TC_1.19 Navigation Bug](/JiraProject/screenshots/failure1.png)
+![Navigation Bug SST-54](/JiraProject/screenshots/jiraDefect1.png)
+![TC_1.19 Navigation Failure(Cypress)](/JiraProject/screenshots/failure1.png)
 
 ---
 
@@ -34,7 +35,8 @@ Website: [https://sweetshop.netlify.app](https://sweetshop.netlify.app)
 - **Actual**: Wham Bar product image is missing. Others display correctly.
 - 💡**Severity**: ***Low***. Affects UI/UX and trust, but functionality is intact.  
 
-![TC_2.3 Sweets Bug](/JiraProject/screenshots/failure2.png)
+![Sweets Bug SST-57](/JiraProject/screenshots/jiraDefect2.png)
+![TC_2.3 Sweets Failure(Cypress)](/JiraProject/screenshots/failure2.png)
 
 ---
 
@@ -46,7 +48,8 @@ Website: [https://sweetshop.netlify.app](https://sweetshop.netlify.app)
 - **Actual**: Links are visible but not clickable.
 - 💡**Severity**: ***Low***. Non-functioning links affect external engagement, not core app usage. 
 
-![TC_4.3 Login Bug](/JiraProject/screenshots/failure3.png)
+![Login Bug SST-58](/JiraProject/screenshots/jiraDefect3.png)
+![TC_4.3 Login Failure (Cypress)](/JiraProject/screenshots/failure3.png)
 
 ---
 
@@ -56,9 +59,10 @@ Website: [https://sweetshop.netlify.app](https://sweetshop.netlify.app)
 - **Steps**: Select "Standard Shipping (£1.99)" and verify total.
 - **Expected**: Total = product(s) price + £1.99
 - **Actual**: Total incorrectly displayed as £NaN instead of £6.69.  
-- 💡**Severity**: ***High***. Critical pricing error; directly affects payment and user trust.  
+- 💡**Severity**: ***High***. Critical pricing error; directly affects payment and user trust. 
 
-![TC_6.3 Login Bug](/JiraProject/screenshots/failure4.png)
+![Basket Bug SST-60](/JiraProject/screenshots/jiraDefect4.png)
+![TC_6.3 Basket Failure (Cypress)](/JiraProject/screenshots/failure4.png)
 
 ---
 
@@ -70,7 +74,8 @@ Website: [https://sweetshop.netlify.app](https://sweetshop.netlify.app)
 - **Actual**: Valid inputs are cleared without any progress.
 - 💡**Severity**: ***Critical***. Blocks user from completing purchase, major blocker.  
 
-![TC_7.3 Login Bug](/JiraProject/screenshots/failure5.png)
+![Checkout Bug SST-59](/JiraProject/screenshots/jiraDefect5.png)
+![TC_7.3 Checkout Failure (Cypress)](/JiraProject/screenshots/failure5.png)
 
 ---
 

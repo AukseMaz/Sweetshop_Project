@@ -10,7 +10,7 @@ Automated end-to-end testing for the **Sweet Shop** web application using **Cypr
 
 ## 📝 Description
 
-The project includes automated Cypress tests that verify the core functionalities of the **Navigation Bar**, **Sweets**, **About**, **Login**, and **Basket** pages.
+The project includes automated Cypress tests that verify the core functionalities of the **Navigation Bar**, **Sweets**, **About**, **Login**, **Account**, and **Basket** pages.
 
 These features are thoroughly tested using:
 - **7 Test Scenarios (TS)**

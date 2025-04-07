@@ -40,7 +40,6 @@ describe("Basket Functionality - Adding Products", () => {
 
         cy.get(deliveryStandardShipping).click();
 
-        // Verify total amount includes shipping cost (£1.99)
         cy.get(basketItemPrice)
             .invoke("text")
             .then((newText) => {
@@ -96,11 +95,9 @@ describe("Basket Functionality - Adding Products", () => {
     });
 
     it('TC_6.6 Empty the basket with the "Empty Basket" link and verify it is empty.', () => {
-        // Add random items to the basket (between 3 to 5 items)
         cy.addRandomItemsToBasket(3, 5);
         cy.visitBasketPage();
 
-        // Check if the "Empty Basket" link exists
         cy.get("body").then(($body) => {
             const emptyBasketLink = $body.find('a[href="#"]').filter(function () {
                 return Cypress.$(this).text().includes("Empty Basket");
@@ -109,11 +106,10 @@ describe("Basket Functionality - Adding Products", () => {
             if (emptyBasketLink.length > 0) {
                 cy.wrap(emptyBasketLink).click();
                 cy.on("window:confirm", () => true);
-                cy.wait(500); // wait for the basket to be emptied
+                cy.wait(500);
 
                 cy.get(".badge").should("contain.text", "0");
 
-                // Verify the total price is £0.00
                 cy.get(emptyTotal).within(() => {
                     cy.get("span").should("contain.text", "Total (GBP)");
                     cy.get("strong").invoke("text").then((totalText) => {

@@ -13,7 +13,12 @@
 
 - **Test Methodology**: Automated.
 - **Tasks in Jira**: Functional test cases registered as individual tasks.
+
+![Visualisation of the Task List](/JiraProject/screenshots/taskList.png)
+
 - **Defects Logged**: 5, all categorized as bugs.
+
+![Bug List](/JiraProject/screenshots/bugList.png)
 
 ---
 

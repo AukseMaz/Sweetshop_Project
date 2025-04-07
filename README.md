@@ -81,3 +81,21 @@ The GitHub Actions workflow **(.github/workflows/cypress.yml)** performs the fol
 - Executes Cypress tests using cypress-io/github-action@v6. 
 
 ---
+
+## 🖼️ Screenshoot of Testing Results  
+
+
+![](TestingResults.png)
+
+---
+
+## 📄 License
+
+MIT License © 2025 Your Name.
+
+---
+
+## Author
+
+Auksė Mažeikienė
+

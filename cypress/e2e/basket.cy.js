@@ -6,6 +6,7 @@ describe("Basket Functionality - Adding Products", () => {
     const basketItemPrice = "li.list-group-item strong";
     const itemDeleteLink = "a.small";
     const emptyTotal = "li.list-group-item.d-flex.justify-content-between";
+    const basketCountBadge = "span.badge, span.badge-pill";
 
     beforeEach(() => {
         cy.visitSweetsPage();
@@ -15,7 +16,7 @@ describe("Basket Functionality - Adding Products", () => {
         cy.addRandomItemsToBasket(3, 7);
 
         cy.get("@selectedItemCount").then((selectedItemCount) => {
-            cy.get(".badge").should("contain", selectedItemCount);
+            cy.get(basketCountBadge).should("contain", selectedItemCount);
         });
     });
 
@@ -49,16 +50,16 @@ describe("Basket Functionality - Adding Products", () => {
     });
 
     it("TC_6.4 Remove an item from the basket and verify count is updated.", () => {
-        cy.addRandomItemsToBasket(3, 5); // Adds between 3 to 5 items
+        cy.addRandomItemsToBasket(3, 5); 
         cy.visitBasketPage();
 
         cy.get("@selectedItemCount").then((initialCount) => {
-            cy.get(".badge-pill").should("contain", initialCount);
+            cy.get(basketCountBadge).should("contain", initialCount);
 
             cy.get(itemDeleteLink).first().click();
             cy.on("window:confirm", () => true);
 
-            cy.get(".badge-pill").invoke("text").then((text) => {
+            cy.get(basketCountBadge).invoke("text").then((text) => {
                 const updatedCount = parseInt(text.trim());
                 expect(updatedCount).to.equal(initialCount - 1);
             });
@@ -108,7 +109,7 @@ describe("Basket Functionality - Adding Products", () => {
                 cy.on("window:confirm", () => true);
                 cy.wait(500);
 
-                cy.get(".badge").should("contain.text", "0");
+                cy.get(basketCountBadge).should("contain.text", "0");
 
                 cy.get(emptyTotal).within(() => {
                     cy.get("span").should("contain.text", "Total (GBP)");

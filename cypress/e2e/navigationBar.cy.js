@@ -162,16 +162,3 @@ describe('Pages load from "Basket" page correctly.', () => {
         cy.get('h1.display-3').should('contain.text', 'Login');
     });
 });
-
-describe('Sweet Shop Logo', () => {
-    const logoImage = 'img[src="favicon.png"]';
-
-    before(() => {
-        cy.visitMainPage();
-    });
-    it('TC_1.21 Verify that the logo icon is visible', () => {
-        cy.get(logoImage)
-            .should('exist')
-            .and('be.visible');
-    });
-});

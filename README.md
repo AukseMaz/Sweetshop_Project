@@ -16,7 +16,7 @@ These features are thoroughly tested using:
 - **7 Test Scenarios (TS)**
 - **47 Test Cases (TC)**
 
-All Test Scenarios (TS) and Test Cases (TC) are described in the [**TestCases.md**](/TestCases.md) file.  
+All TSs and TCs are described in the [**TestCases.md**](/TestCases.md) file.  
 
 Additionally, the identified functional test cases have been registered and automated as Tasks in Jira. Relevant information can be found in the [**JiraProject/JiraSummary.md**](/JiraProject/JiraSummary.md) file.
 
@@ -115,7 +115,7 @@ The GitHub Actions workflow **(.github/workflows/cypress.yml)** performs the fol
 
 ## 📄 License
 
-MIT License © 2025 Your Name.
+MIT License © 2025.
 
 ---
 

@@ -10,7 +10,7 @@ Automated end-to-end testing for the **Sweet Shop** web application using **Cypr
 
 ## 📝 Description
 
-The project includes automated Cypress tests that verify the core functionalities of the **Navigation Bar**, **Sweets**, **About**, **Login**, **Account**, and **Basket** pages.
+The project includes automated Cypress tests that verify the core functionalities of the **Header (navigation bar)**, **Sweets**, **About**, **Login**, **Account**, and **Basket** pages.
 
 These features are thoroughly tested using:
 - **7 Test Scenarios (TS)**
@@ -106,20 +106,16 @@ The GitHub Actions workflow **(.github/workflows/cypress.yml)** performs the fol
 
 ---
 
-## 🖼️ Screenshoot of Testing Results  
-
-
+## 🖼️ Screenshot of Testing Results  
 ![](TestingResults.png)
 
 ---
 
 ## 📄 License
-
 MIT License © 2025.
 
 ---
 
 ## 🧑‍💻 Author
-
 Auksė Mažeikienė
 

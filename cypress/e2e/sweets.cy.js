@@ -3,7 +3,10 @@
 describe("Sweet Shop - Sweets Page", () => {
     const productList = ".row.text-center";
     const availableProductList = ".col-lg-3";
+    const productTitle = ".card-title";
+    const productImage = ".card-img-top";
     const productPrice = "p small.text-muted";
+    const addToBasketButton = "a.addItem";
 
     beforeEach(() => {
         cy.visitSweetsPage();
@@ -19,35 +22,28 @@ describe("Sweet Shop - Sweets Page", () => {
         cy.get(productList).should("exist");
 
         cy.get(availableProductList).should("have.length.greaterThan", 0);
-
-        cy.get(availableProductList).each(($el) => {
-            cy.wrap($el).find(".card-title").should("exist"); 
-            cy.wrap($el).find(".card-img-top").should("have.attr", "src").and("not.be.empty"); 
-        });
     });
 
     it('TC_2.3 Verify each product has a name, price, image and "Add to Basket" button.', () => {
         cy.get(productList).should("exist");
-
+    
         cy.get(availableProductList).each(($product) => {
-            cy.wrap($product).find(".card-title").should("exist");
-
+            cy.wrap($product).find(productTitle).should("exist");
+    
             cy.wrap($product).find("p").should("exist");
             cy.wrap($product).find(productPrice)
                 .should("exist")
                 .and("contain.text", "£");
-
-            cy.get(availableProductList).each(($product) => {
-                cy.wrap($product).find(".card-img-top")
-                    .should("have.attr", "src")
-                    .and("not.be.empty")
-                    .then(($img) => {
-                        expect($img[0].naturalWidth).to.be.greaterThan(0);
-                    });
-            });
-
-            cy.wrap($product).find("a.addItem").should("be.visible").and("contain.text", "Add to Basket");
-            cy.wrap($product).find("a.addItem").click();
+    
+            cy.wrap($product).find(productImage)
+                .should("have.attr", "src")
+                .and("not.be.empty")
+                .then(($img) => {
+                    expect($img[0].naturalWidth).to.be.greaterThan(0);
+                });
+    
+            cy.wrap($product).find(addToBasketButton).should("be.visible").and("contain.text", "Add to Basket");
+            cy.wrap($product).find(addToBasketButton).click();
         });
     });
 });

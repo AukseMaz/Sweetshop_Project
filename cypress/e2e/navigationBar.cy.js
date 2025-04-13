@@ -8,11 +8,8 @@ describe('Pages load from main page correctly.', () => {
     });
 
     it('TC_1.1 Should navigate to the "Sweets" page correctly', () => {
-        // Click on the "Sweets" navigation link
         cy.get(navigationBar).contains('Sweets').click();
-        // Verify the new URL contains "sweets"
         cy.url().should('include', '/sweets');
-        // Verify the Sweets Page heading or content is available
         cy.get('h1.display-3').should('contain.text', 'Browse sweets');
     });
 

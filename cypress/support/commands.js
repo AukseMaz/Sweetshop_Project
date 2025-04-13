@@ -36,18 +36,19 @@ Cypress.Commands.add("addRandomItemsToBasket", (minItems, maxItems) => {
 });
 
 Cypress.Commands.add('fillCheckoutForm', (email, firstName, lastName, address, address2, country, city, zip, cardName, cardNumber, expiration, cvv) => {
-    cy.get("input#name").first().clear().type(firstName);
-    cy.get("input#name").last().clear().type(lastName);
-    cy.get("input#email").clear().type(email);
-    cy.get("input#address").clear().type(address);
-    cy.get("input#address2").clear().type(address2);
-    cy.get("select#country").select(country);
-    cy.get("select#city").select(city);
-    cy.get("input#zip").clear().type(zip);
-    cy.get("input#cc-name").clear().type(cardName);
-    cy.get("input#cc-number").clear().type(cardNumber);
-    cy.get("input#cc-expiration").clear().type(expiration);
-    cy.get("input#cc-cvv").clear().type(cvv);
-});
+    cy.get('input[id="name"]').first().clear().type(firstName);
+    cy.get('input[id="name"]').last().clear().type(lastName);
+    cy.get('input[id="email"]').clear().type(email);
+    cy.get('input[id="address"]').clear().type(address);
+    cy.get('input[id="address2"]').clear().type(address2);
+    cy.get('select[id="country"]').select(country);
+    cy.get('select[id="city"]').select(city);
+    cy.get('input[id="zip"]').clear().type(zip);
+    cy.get('input[id="cc-name"]').clear().type(cardName);
+    cy.get('input[id="cc-number"]').clear().type(cardNumber);
+    cy.get('input[id="cc-expiration"]').clear().type(expiration);
+    cy.get('input[id="cc-cvv"]').clear().type(cvv);
+  });
+  
 
 

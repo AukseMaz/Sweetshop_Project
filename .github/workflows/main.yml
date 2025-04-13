@@ -30,4 +30,4 @@ jobs:
         with:
           browser: chrome
           headless: true
-          record: false  # Set to true if using Cypress Dashboard
+          record: false 

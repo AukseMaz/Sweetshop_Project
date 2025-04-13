@@ -26,19 +26,19 @@ describe('TC_7 Checkout Section', () => {
   });
 
   it("TC_7.2 Display all Billing address and Payment form input fields as visible and enabled.", () => {
-    cy.get("input#name").first().should("be.visible").and("be.enabled");
-    cy.get("input#name").last().should("be.visible").and("be.enabled");
-    cy.get("input#email").should("be.visible").and("be.enabled");
-    cy.get("input#address").should("be.visible").and("be.enabled");
-    cy.get("input#address2").should("be.visible").and("be.enabled");
-    cy.get("select#country").should("be.visible").and("be.enabled");
-    cy.get("select#city").should("be.visible").and("be.enabled");
-    cy.get("input#zip").should("be.visible").and("be.enabled");
-    cy.get("input#cc-name").should("be.visible").and("be.enabled");
-    cy.get("input#cc-number").should("be.visible").and("be.enabled");
-    cy.get("input#cc-expiration").should("be.visible").and("be.enabled");
-    cy.get("input#cc-cvv").should("be.visible").and("be.enabled");
-  });
+    cy.get('input[id="name"]').first().should("be.visible").and("be.enabled");
+    cy.get('input[id="name"]').last().should("be.visible").and("be.enabled");
+    cy.get('input[id="email"]').should("be.visible").and("be.enabled");
+    cy.get('input[id="address"]').should("be.visible").and("be.enabled");
+    cy.get('input[id="address2"]').should("be.visible").and("be.enabled");
+    cy.get('select[id="country"]').should("be.visible").and("be.enabled");
+    cy.get('select[id="city"]').should("be.visible").and("be.enabled");
+    cy.get('input[id="zip"]').should("be.visible").and("be.enabled");
+    cy.get('input[id="cc-name"]').should("be.visible").and("be.enabled");
+    cy.get('input[id="cc-number"]').should("be.visible").and("be.enabled");
+    cy.get('input[id="cc-expiration"]').should("be.visible").and("be.enabled");
+    cy.get('input[id="cc-cvv"]').should("be.visible").and("be.enabled");
+  });  
 
   it("TC_7.3 Complete the checkout process with valid data.", () => {
     cy.fillCheckoutForm(validEmail, validFirstName, validLastName, validAddress, validAddress2, validCountry, validCity, validZip, validCardName, validCardNumber, validExpiration, validCVV);

@@ -18,10 +18,6 @@ Cypress.Commands.add("visitBasketPage", () => {
     cy.visit("https://sweetshop.netlify.app/basket");
 });
 
-Cypress.Commands.add('addItemToBasket', (itemIndex = 0) => {
-    cy.get('.col-lg-3').eq(itemIndex).find('a.addItem').click();
-});
-
 Cypress.Commands.add("addRandomItemsToBasket", (minItems, maxItems) => {
     cy.get(".btn").then(($buttons) => {
         const totalItems = $buttons.length;

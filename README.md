@@ -16,12 +16,18 @@ These features are thoroughly tested using:
 - **7 Test Scenarios (TS)**
 - **47 Test Cases (TC)**
 
-All TSs and TCs are described in the [**TestCases.md**](/TestCases.md) file.  
+All TSs and TCs are described in the [**TestCases.md**](/TestCases.md) file. 
 
-Additionally, the identified functional test cases have been registered and automated as Tasks in Jira. Relevant information can be found in the [**JiraProject/JiraSummary.md**](/JiraProject/JiraSummary.md) file.
+To enhance test efficiency, the project utilizes Cypress commands and custom helper functions.
+
+The project also incorporates a robust CI/CD pipeline using GitHub Actions. 
+
+Additionally, the identified functional test cases have been registered as Tasks in Jira. Relevant information can be found in the [**JiraProject/JiraSummary.md**](/JiraProject/JiraSummary.md) file.
 
 ---
 ## 🔁 Folder Structure
+
+The Cypress test suite is organized within the [**cypress/e2e/**](cypress/e2e/) directory, where each TS has its corresponding TCs contained in separate spec files. 
 
 <pre> SWEETSHOP_PROJECT 
 ├── .github/ 
@@ -51,12 +57,10 @@ Additionally, the identified functional test cases have been registered and auto
 
 ---
 ## 🔧 Installation
-
 ### 1️⃣ Prerequisites
-```
+
 Node.js  
 npm 
-```
 
 ### 2️⃣ Clone the Repository
 
@@ -69,7 +73,9 @@ npm install
 ```
 ---
 
-## 🧪 Running Tests
+## 🧪 Running Cypress Tests
+---
+In this project, the [**package.json**](/package.json) contains scripts designed to simplify the execution of Cypress tests, offering two distinct modes:  
 ### Run Cypress in UI Mode
 ```
 npm run cy:open
@@ -81,6 +87,8 @@ npm run cy:run
 ---
 
 ## ⚙️ Cypress Commands
+
+The project leverages **hooks** and **helper functions** to streamline the Cypress testing process. All relevant information can be found in the [**cypress/support/commands.js**](/cypress/support/commands.js) file. 
 | Command                          | Purpose                       |
 |----------------------------------|-------------------------------|
 | `cy.visitMainPage()`             | Visit main page                |
@@ -95,7 +103,7 @@ npm run cy:run
 
 ## 🚀 CI/CD with GitHub Actions
 The workflow is triggered on push and pull requests to the main branch.   
-The GitHub Actions workflow **(.github/workflows/cypress.yml)** performs the following steps:
+The GitHub Actions workflow [**.github/workflows/cypress.yml**](.github/workflows/cypress.yml) performs the following steps:
 
 - Checks out the repository using actions/checkout@v4.
 - Installs dependencies using npm install.

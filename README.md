@@ -83,12 +83,11 @@ npm run cy:run
 ## ⚙️ Cypress Commands
 | Command                          | Purpose                       |
 |----------------------------------|-------------------------------|
-| `cy.visitMainPage()`             | Visit homepage                |
-| `cy.visitSweetsPage()`           | Visit sweets catalog          |
+| `cy.visitMainPage()`             | Visit main page                |
+| `cy.visitSweetsPage()`           | Visit sweets page          |
 | `cy.visitAboutPage()`            | Visit about page              |
-| `cy.visitLoginPage()`            | Go to login                   |
-| `cy.visitBasketPage()`           | Go to basket                  |
-| `cy.addItemToBasket(index)`     | Add a specific sweet          |
+| `cy.visitLoginPage()`            | Visit login page                   |
+| `cy.visitBasketPage()`           | Visit basket page                  |
 | `cy.addRandomItemsToBasket(min, max)` | Add random number of sweets |
 | `cy.fillCheckoutForm(...)`      | Fill out the entire checkout form |
 

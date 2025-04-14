@@ -1,4 +1,4 @@
-# Sweet Shop Functional Testing Scenarios and Cases
+# Sweet Shop Functional Testing Scenarios and Test Cases
 
 ## 1. TS_1 Header (navigation bar) 
 ### TC_1.1 Verify that "Sweets" page loads from main page correctly.

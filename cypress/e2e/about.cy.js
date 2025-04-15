@@ -8,11 +8,11 @@ describe("SweetShop - About Page", () => {
         cy.visitAboutPage();
     });
 
-    it('TC_1.1 Verify the page has the title "Sweet Shop Project"', () => {
+    it('TC_3.1 Verify the page has the title "Sweet Shop Project"', () => {
         cy.contains("h1", "Sweet Shop Project").should("be.visible");
     });
   
-    it("TC_1.2 Verify the page has the correct description", () => {
+    it("TC_3.2 Verify the page has the correct description", () => {
         cy.get(paragraphsDescription)
             .should("exist")
             .and("be.visible")
@@ -25,7 +25,7 @@ describe("SweetShop - About Page", () => {
             });
     });      
   
-    it("TC_1.3 Verify the page has a footer and it matches the year 2018", () => {
+    it("TC_3.3 Verify the page has a footer and it matches the year 2018", () => {
         cy.contains(paragraphFooterText, "2018").should("be.visible");
     });
 });

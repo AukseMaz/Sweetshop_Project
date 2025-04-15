@@ -132,7 +132,7 @@ The GitHub Actions workflow [**.github/workflows/cypress.yml**](.github/workflow
 ---
 
 ## 📄 License
-MIT License © 2025.
+ISC
 
 ---
 

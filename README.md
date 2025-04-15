@@ -27,15 +27,16 @@ Additionally, the identified functional test cases have been registered as Tasks
 ---
 ## 🔖 Table of Contents
 
-- [Description](#description)
-- [Folder Structure](#folder-structure)
-- [Installation](#installation)
-- [Running Cypress Tests](#running-cypress-tests)
-- [Cypress Commands](#cypress-commands)
-- [CI/CD with GitHub Actions](#cicd-with-github-actions)
-- [Screenshot of Testing Results](#screenshot-of-testing-results)
-- [License](#license)
-- [Autor](#autor)
+- [Description](#-description)
+- [Folder Structure](#-folder-structure)
+- [Installation](#-installation)
+- [Running Cypress Tests](#-running-cypress-tests)
+- [Cypress Commands](#-cypress-commands)
+- [CI/CD with GitHub Actions](#-cicd-with-github-actions)
+- [Screenshot of Testing Results](#-screenshot-of-testing-results)
+- [License](#-license)
+- [Author](#-author)
+
 
 ---
 ## 🔁 Folder Structure

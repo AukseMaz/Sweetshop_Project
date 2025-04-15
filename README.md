@@ -25,6 +25,19 @@ The project also incorporates a robust CI/CD pipeline using GitHub Actions.
 Additionally, the identified functional test cases have been registered as Tasks in Jira. Relevant information can be found in the [**JiraProject/JiraSummary.md**](/JiraProject/JiraSummary.md) file.
 
 ---
+## 🔖 Table of Contents
+
+- [Description](#description)
+- [Folder Structure](#folder-structure)
+- [Installation](#installation)
+- [Running Cypress Tests](#running-cypress-tests)
+- [Cypress Commands](#cypress-commands)
+- [CI/CD with GitHub Actions](#cicd-with-github-actions)
+- [Screenshot of Testing Results](#screenshot-of-testing-results)
+- [License](#license)
+- [Autor](#autor)
+
+---
 ## 🔁 Folder Structure
 
 The Cypress test suite is organized within the [**cypress/e2e/**](cypress/e2e/) directory, where each TS has its corresponding TCs contained in separate spec files. 
@@ -73,8 +86,7 @@ npm install
 ```
 ---
 
-## 🧪 Running Cypress Tests
----
+## 🧪 Running Cypress Tests  
 In this project, the [**package.json**](/package.json) contains scripts designed to simplify the execution of Cypress tests, offering two distinct modes:  
 ### Run Cypress in UI Mode
 ```

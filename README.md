@@ -44,30 +44,31 @@ Additionally, the identified functional test cases have been registered as Tasks
 The Cypress test suite is organized within the [**cypress/e2e/**](cypress/e2e/) directory, where each TS has its corresponding TCs contained in separate spec files. 
 
 <pre> SWEETSHOP_PROJECT 
-├── .github/ 
-│ └── workflows/ # GitHub Actions workflow for CI 
-├── cypress/ 
-│ ├── e2e/ # End-to-end test specs 
-│ │ ├── about.cy.js 
-│ │ ├── account.cy.js 
-│ │ ├── basket.cy.js 
-│ │ ├── checkout.cy.js 
-│ │ ├── login.cy.js 
-│ │ ├── navigationBar.cy.js 
-│ │ └── sweets.cy.js 
-│ ├── fixtures/ # Test data (example.json) 
-│ ├── reports/ # Test reports 
-│ ├── screenshots/ # Failure screenshots 
-│ ├── support/ # Custom Cypress commands 
-│ │ └── commands.js 
-│ └── e2e.js # Cypress setup 
-├── JiraProject/ # Jira-related documentation 
-├── node_modules/ # Dependencies 
-├── .gitignore # Git ignore file 
-├── cypress.config.js # Cypress configuration 
-├── package.json # Dependencies & scripts 
-├── package-lock.json # Dependency lockfile 
-└── TestCases.md # Test cases documentation </pre>
+├── 📁 .github/
+│   └── 📁 workflows/              # GitHub Actions workflow for CI/CD
+│       └── 📄 main.yml
+├── 📁 cypress/
+│   ├── 📁 e2e/                    # End-to-end test specs
+│   │   ├── 📄 about.cy.js
+│   │   ├── 📄 account.cy.js
+│   │   ├── 📄 basket.cy.js
+│   │   ├── 📄 checkout.cy.js
+│   │   ├── 📄 login.cy.js
+│   │   ├── 📄 navigationBar.cy.js
+│   │   └── 📄 sweets.cy.js
+│   ├── 📁 fixtures/              # Test data (example.json)
+│   ├── 📁 reports/               # Test reports
+│   ├── 📁 screenshots/           # Failure screenshots
+│   ├── 📁 support/               # Custom Cypress commands
+│   │   ├── 📄 commands.js
+│   │   └── 📄 e2e.js             # Cypress setup
+├── 📁 JiraProject/               # Jira-related documentation
+├── 📁 node_modules/              # Dependencies
+├── 📄 .gitignore                 # Git ignore file
+├── 📄 cypress.config.js          # Cypress configuration
+├── 📄 package.json               # Dependencies & scripts
+├── 📄 package-lock.json          # Dependency lockfile
+└── 📄 TestCases.md               # Test cases documentation </pre>
 
 ---
 ## 🔧 Installation

@@ -27,7 +27,6 @@ Additionally, the identified functional test cases have been registered as Tasks
 ---
 ## 🔖 Table of Contents
 
-- [Description](#-description)
 - [Folder Structure](#-folder-structure)
 - [Installation](#-installation)
 - [Running Cypress Tests](#-running-cypress-tests)
